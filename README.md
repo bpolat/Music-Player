@@ -9,7 +9,7 @@ Fully functional music player is written in swift programming language.
 zero-project
 ==================
 
-Awesome music inside the project license to www.zero-poject.gr  If you want to use it on your projects. Please get in
+Awesome music inside the project license to www.zero-project.gr  If you want to use it on your projects. Please get in
 touch with zero-project
 
 
