@@ -17,6 +17,9 @@
 		D3C174A619A36B6600C3F4E4 /* violin.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C1749519A36B6600C3F4E4 /* violin.png */; };
 		D3C174A919A385E000C3F4E4 /* read me.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D3C174A819A385E000C3F4E4 /* read me.rtf */; };
 		D3C174AB19A3864000C3F4E4 /* music player.gif in Resources */ = {isa = PBXBuildFile; fileRef = D3C174AA19A3864000C3F4E4 /* music player.gif */; };
+		D3C174AF19A394B600C3F4E4 /* High Hopes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D3C174AC19A394B600C3F4E4 /* High Hopes.mp3 */; };
+		D3C174B019A394B600C3F4E4 /* Intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D3C174AD19A394B600C3F4E4 /* Intro.mp3 */; };
+		D3C174B119A394B600C3F4E4 /* Breath of Freedom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D3C174AE19A394B600C3F4E4 /* Breath of Freedom.mp3 */; };
 		D3D2E95319A36A0000DEF125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2E95219A36A0000DEF125 /* AppDelegate.swift */; };
 		D3D2E95519A36A0000DEF125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2E95419A36A0000DEF125 /* ViewController.swift */; };
 		D3D2E95819A36A0000DEF125 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3D2E95619A36A0000DEF125 /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 		D3C1749519A36B6600C3F4E4 /* violin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = violin.png; sourceTree = "<group>"; };
 		D3C174A819A385E000C3F4E4 /* read me.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "read me.rtf"; sourceTree = "<group>"; };
 		D3C174AA19A3864000C3F4E4 /* music player.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "music player.gif"; sourceTree = "<group>"; };
+		D3C174AC19A394B600C3F4E4 /* High Hopes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "High Hopes.mp3"; sourceTree = "<group>"; };
+		D3C174AD19A394B600C3F4E4 /* Intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Intro.mp3; sourceTree = "<group>"; };
+		D3C174AE19A394B600C3F4E4 /* Breath of Freedom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Breath of Freedom.mp3"; sourceTree = "<group>"; };
 		D3D2E94D19A36A0000DEF125 /* Music Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D2E95119A36A0000DEF125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D2E95219A36A0000DEF125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +99,9 @@
 		D3C174A719A36BEA00C3F4E4 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				D3C174AC19A394B600C3F4E4 /* High Hopes.mp3 */,
+				D3C174AD19A394B600C3F4E4 /* Intro.mp3 */,
+				D3C174AE19A394B600C3F4E4 /* Breath of Freedom.mp3 */,
 			);
 			name = music;
 			sourceTree = "<group>";
@@ -242,11 +251,14 @@
 				D3C1749C19A36B6600C3F4E4 /* list.png in Resources */,
 				D3D2E95819A36A0000DEF125 /* Main.storyboard in Resources */,
 				D3C174A119A36B6600C3F4E4 /* pause.png in Resources */,
+				D3C174B019A394B600C3F4E4 /* Intro.mp3 in Resources */,
 				D3C174A619A36B6600C3F4E4 /* violin.png in Resources */,
 				D3C174A219A36B6600C3F4E4 /* play.png in Resources */,
 				D3C174A319A36B6600C3F4E4 /* previous.png in Resources */,
+				D3C174AF19A394B600C3F4E4 /* High Hopes.mp3 in Resources */,
 				D3D2E95A19A36A0000DEF125 /* Images.xcassets in Resources */,
 				D3C174AB19A3864000C3F4E4 /* music player.gif in Resources */,
+				D3C174B119A394B600C3F4E4 /* Breath of Freedom.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
