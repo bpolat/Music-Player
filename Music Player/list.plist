@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Intro</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>High Hopes</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Twilight Poem</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Breath of Freedom</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>The silent Force</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Battle at the misty valley</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Dawn of a New Era</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Path of Loneliness</string>
+	</dict>
+	<dict>
+		<key>albumName</key>
+		<string>Ambient Symphony</string>
+		<key>songName</key>
+		<string>Neverending Dream</string>
+	</dict>
+</array>
+</plist>
