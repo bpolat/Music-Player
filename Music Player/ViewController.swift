@@ -34,21 +34,21 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     var finalImage:UIImage!
     var isTableViewOnscreen = false
     
-    @IBOutlet var songNo : UILabel
-    @IBOutlet var lineView : UIView
-    @IBOutlet var songNameLabel : UILabel
-    @IBOutlet var songNameLabelPlaceHolder : UILabel
-    @IBOutlet var progressTimerLabel : UILabel
-    @IBOutlet var playerProgressSlider : UISlider
-    @IBOutlet var totalLengthOfAudioLabel : UILabel
-    @IBOutlet var previousButton : UIButton
-    @IBOutlet var playButton : UIButton
-    @IBOutlet var nextButton : UIButton
-    @IBOutlet var listButton : UIButton
-    @IBOutlet var tableView : UITableView
-    @IBOutlet var blurImageView : UIImageView
-    @IBOutlet var enhancer : UIView
-    @IBOutlet var tableViewContainer : UIView
+    @IBOutlet var songNo : UILabel!
+    @IBOutlet var lineView : UIView!
+    @IBOutlet var songNameLabel : UILabel!
+    @IBOutlet var songNameLabelPlaceHolder : UILabel!
+    @IBOutlet var progressTimerLabel : UILabel!
+    @IBOutlet var playerProgressSlider : UISlider!
+    @IBOutlet var totalLengthOfAudioLabel : UILabel!
+    @IBOutlet var previousButton : UIButton!
+    @IBOutlet var playButton : UIButton!
+    @IBOutlet var nextButton : UIButton!
+    @IBOutlet var listButton : UIButton!
+    @IBOutlet var tableView : UITableView!
+    @IBOutlet var blurImageView : UIImageView!
+    @IBOutlet var enhancer : UIView!
+    @IBOutlet var tableViewContainer : UIView!
     
     
     
@@ -190,7 +190,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     func setCurrentAudioPath(){
         currentAudio = readSongNameFromPlist(currentAudioIndex)
-        currentAudioPath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(currentAudio, ofType: "mp3"))
+        currentAudioPath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(currentAudio, ofType: "mp3")!)
         println("\(currentAudioPath)")
     }
     
@@ -282,7 +282,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func startTimer(){
-        if !timer{
+        if (timer != nil){
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update:"), userInfo: nil,repeats: true)
             timer.fire()
         }
@@ -337,7 +337,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     func readSongNameFromPlist(indexNumber: Int) -> String {
         
         let path = NSBundle.mainBundle().pathForResource("list", ofType: "plist")
-        audioList = NSArray(contentsOfFile:path)
+        audioList = NSArray(contentsOfFile:path!)
         
         var songNameDict = NSDictionary();
         songNameDict = audioList.objectAtIndex(indexNumber) as NSDictionary
