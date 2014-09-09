@@ -52,17 +52,17 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     
     
-    // #pragma mark - UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return audioList.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!  {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         var songNameDict = NSDictionary();
         songNameDict = audioList.objectAtIndex(indexPath.row) as NSDictionary
         var songName = songNameDict.valueForKey("songName") as String
@@ -72,24 +72,24 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         var albumName = albumNameDict.valueForKey("albumName") as String
         
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
-        cell.textLabel.font = UIFont(name: "Didot", size: 25.0)
-        cell.textLabel.textColor = UIColor.whiteColor()
-        cell.textLabel.text = songName
+        cell.textLabel?.font = UIFont(name: "Didot", size: 25.0)
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.textLabel?.text = songName
         
-        cell.detailTextLabel.font = UIFont(name: "Didot", size: 16.0)
-        cell.detailTextLabel.textColor = UIColor.whiteColor()
-        cell.detailTextLabel.text = albumName
+        cell.detailTextLabel?.font = UIFont(name: "Didot", size: 16.0)
+        cell.detailTextLabel?.textColor = UIColor.whiteColor()
+        cell.detailTextLabel?.text = albumName
         
         
         return cell
     }
     
     
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 54.0
     }
     
-    func tableView(tableView: UITableView!,willDisplayCell cell: UITableViewCell!,forRowAtIndexPath indexPath: NSIndexPath!){
+    func tableView(tableView: UITableView,willDisplayCell cell: UITableViewCell!,forRowAtIndexPath indexPath: NSIndexPath!){
         tableView.backgroundColor = UIColor.clearColor()
         
         let backgroundView = UIView(frame: CGRectZero)
@@ -98,9 +98,9 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         cell.backgroundColor = UIColor.clearColor()
     }
     
-    // #pragma mark UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         animateTableViewToOffScreen()
         currentAudioIndex = indexPath.row
@@ -282,7 +282,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func startTimer(){
-        if (timer != nil){
+        if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update:"), userInfo: nil,repeats: true)
             timer.fire()
         }
@@ -398,7 +398,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
             }, completion: {
                 (value: Bool) in
                 self.enhancer.hidden = true
-            })
+        })
     }
     
     
