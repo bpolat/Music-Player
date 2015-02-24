@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>artistName</key>
+		<string>Artist Name</string>
+		<key>albumName</key>
+		<string>Album Name</string>
+		<key>songName</key>
+		<string>Song Name</string>
+		<key>albumArtwork</key>
+		<string>sample artwork</string>
+	</dict>
+</array>
+</plist>
