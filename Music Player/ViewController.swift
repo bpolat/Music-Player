@@ -44,6 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet var enhancer : UIView!
     @IBOutlet var tableViewContainer : UIView!
     
+    @IBOutlet weak var tableViewContainerTopConstrain: NSLayoutConstraint!
     
     
     // Table View Part of the code. Displays Song name and Artist Name
@@ -164,6 +165,20 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         updateLabels()
         assingSliderUI()
         
+        
+    }
+
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableViewContainerTopConstrain.constant = 800.0
+        self.tableViewContainer.layoutIfNeeded()
+        let iOSDeviceScreenSize = UIScreen.mainScreen().bounds.size
+        if iOSDeviceScreenSize.height == 480{
+
+        self.albumArtworkImageView.hidden = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -405,15 +420,12 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     func animateTableViewToScreen(){
         
-        
+        self.tableViewContainerTopConstrain.constant = 17.0
+
         
         UIView.animateWithDuration(0.25, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             
-            self.tableViewContainer.frame = CGRectMake(
-                self.tableViewContainer.frame.origin.x,
-                17,
-                self.tableViewContainer.frame.size.width,
-                self.tableViewContainer.frame.size.height)
+            self.tableViewContainer.layoutIfNeeded()
             
             }, completion: nil)
         
@@ -425,11 +437,10 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         setNeedsStatusBarAppearanceUpdate()
         
         animateBlurImageBack()
+        self.tableViewContainerTopConstrain.constant = 800.0
+
         UIView.animateWithDuration(0.25, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.tableViewContainer.frame = CGRectMake(
-                self.tableViewContainer.frame.origin.x,667,
-                self.tableViewContainer.frame.size.width,
-                self.tableViewContainer.frame.size.height)
+           self.tableViewContainer.layoutIfNeeded()
             
             }, completion: {
                 (value: Bool) in

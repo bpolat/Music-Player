@@ -13,30 +13,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-    var storyboard: UIStoryboard?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-            
-        self.window = UIWindow() //window doesn't have an init with frame class, so we need to set that to the screen bounds in order to have touch
-        self.window!.frame = UIScreen.mainScreen().bounds
-            let iOSDeviceScreenSize = UIScreen.mainScreen().bounds.size
-            if iOSDeviceScreenSize.height == 480{
-            // Load iPhone 3.x-4.x screen size Storyboard
-            self.storyboard = UIStoryboard(name: "Main_3.5_Inch", bundle: nil)
-            self.window!.rootViewController = self.storyboard!.instantiateInitialViewController() as? UIViewController
-            } else if iOSDeviceScreenSize.height == 568{
-                //Load iPhone 5.x screen size Storyboard
-                self.storyboard = UIStoryboard(name: "Main_4.0_Inch", bundle: nil)
-                self.window!.rootViewController = self.storyboard!.instantiateInitialViewController() as? UIViewController
-            
-            }else if iOSDeviceScreenSize.height == 667 {
-                //Load iPhone 6 screensize Storyboard
-                self.storyboard = UIStoryboard(name: "Main_4.7_Inch", bundle: nil)
-                self.window!.rootViewController = self.storyboard!.instantiateInitialViewController() as? UIViewController
-            }
-        
-        self.window!.makeKeyAndVisible() //got to manually key since we're initializing our window by hand
-        //at this point we have the iPad storyboard or the iPhone storyboard loaded
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
         return true
     }
 
