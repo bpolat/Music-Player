@@ -9,8 +9,10 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
-class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,AVAudioPlayerDelegate {
+
+class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,AVAudioPlayerDelegate {
     
     var audioPlayer:AVAudioPlayer! = nil
     var currentAudio = ""
@@ -47,6 +49,34 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var tableViewContainerTopConstrain: NSLayoutConstraint!
     
     
+    
+    
+    // This shows media info on lock screen - used currently and perform controls
+    func showMediaInfo(){
+        let artistName = readArtistNameFromPlist(currentAudioIndex)
+        let songName = readSongNameFromPlist(currentAudioIndex)
+        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = [MPMediaItemPropertyArtist : artistName,  MPMediaItemPropertyTitle : songName]
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent) {
+        if event.type == UIEventType.RemoteControl{
+            switch event.subtype{
+            case UIEventSubtype.RemoteControlPlay:
+                play(self)
+            case UIEventSubtype.RemoteControlPause:
+                play(self)
+            case UIEventSubtype.RemoteControlNextTrack:
+                next(self)
+            case UIEventSubtype.RemoteControlPreviousTrack:
+                previous(self)
+            default:
+                println("There is an issue with the control")
+            }
+        }
+    }
+    
+
+    
     // Table View Part of the code. Displays Song name and Artist Name
     
     // MARK: - UITableViewDataSource
@@ -61,12 +91,12 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell  {
         var songNameDict = NSDictionary();
-        songNameDict = audioList.objectAtIndex(indexPath.row) as NSDictionary
-        var songName = songNameDict.valueForKey("songName") as String
+        songNameDict = audioList.objectAtIndex(indexPath.row) as! NSDictionary
+        var songName = songNameDict.valueForKey("songName") as! String
         
         var albumNameDict = NSDictionary();
-        albumNameDict = audioList.objectAtIndex(indexPath.row) as NSDictionary
-        var albumName = albumNameDict.valueForKey("albumName") as String
+        albumNameDict = audioList.objectAtIndex(indexPath.row) as! NSDictionary
+        var albumName = albumNameDict.valueForKey("albumName") as! String
         
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
         cell.textLabel?.font = UIFont(name: "GillSans", size: 25.0)
@@ -86,7 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         return 54.0
     }
     
-    func tableView(tableView: UITableView,willDisplayCell cell: UITableViewCell!,forRowAtIndexPath indexPath: NSIndexPath!){
+    func tableView(tableView: UITableView,willDisplayCell cell: UITableViewCell,forRowAtIndexPath indexPath: NSIndexPath){
         tableView.backgroundColor = UIColor.clearColor()
         
         let backgroundView = UIView(frame: CGRectZero)
@@ -130,7 +160,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         var imageToBlur = CIImage(image: image)
         var blurfilter = CIFilter(name: "CIGaussianBlur")
         blurfilter.setValue(imageToBlur, forKey: "inputImage")
-        var resultImage = blurfilter.valueForKey("outputImage") as CIImage
+        var resultImage = blurfilter.valueForKey("outputImage") as! CIImage
         var blurredImage = UIImage(CIImage: resultImage)
         self.blurImageView.image = blurredImage
         self.blurImageView.hidden = false
@@ -164,9 +194,18 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         prepareAudio()
         updateLabels()
         assingSliderUI()
-        
+        retrievePlayerProgressSliderValue()
+        //LockScreen Media control registry
+        if UIApplication.sharedApplication().respondsToSelector("beginReceivingRemoteControlEvents"){
+            UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+            UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+            })
+        }
+
         
     }
+    
+    
 
 
     override func viewWillAppear(animated: Bool) {
@@ -174,9 +213,9 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         self.tableViewContainerTopConstrain.constant = 800.0
         self.tableViewContainer.layoutIfNeeded()
+        //Hide Artwork on iPhone 3,4,4s- There is not enough space to display a[]bum artwork
         let iOSDeviceScreenSize = UIScreen.mainScreen().bounds.size
         if iOSDeviceScreenSize.height == 480{
-
         self.albumArtworkImageView.hidden = true
         }
     }
@@ -215,15 +254,14 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func retrieveSavedTrackNumber(){
-        
         if let currentAudioIndex_ = NSUserDefaults.standardUserDefaults().objectForKey("currentAudioIndex") as? Int{
             currentAudioIndex = currentAudioIndex_
         }else{
             currentAudioIndex = 0
         }
-        
     }
-    
+
+
     
     // Playing Audio
     
@@ -252,6 +290,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         startTimer()
         updateLabels()
         saveCurrentTrackNumber()
+        showMediaInfo()
     }
     
     func playNextAudio(){
@@ -314,22 +353,46 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         if !audioPlayer.playing{
             return
         }
+        var time = calculateTimeFromNSTimeInterval(audioPlayer.currentTime)
+        progressTimerLabel.text  = "\(time.minute):\(time.second)"
+        playerProgressSlider.value = CFloat(audioPlayer.currentTime)
+        NSUserDefaults.standardUserDefaults().setFloat(playerProgressSlider.value , forKey: "playerProgressSliderValue")
+
         
-        var hour_   = abs(Int(audioPlayer.currentTime)/3600)
-        var minute_ = abs(Int((audioPlayer.currentTime/60) % 60))
-        var second_ = abs(Int(audioPlayer.currentTime  % 60))
+    }
+    
+    func retrievePlayerProgressSliderValue(){
+        let playerProgressSliderValue =  NSUserDefaults.standardUserDefaults().floatForKey("playerProgressSliderValue")
+        if playerProgressSliderValue != 0 {
+            playerProgressSlider.value  = playerProgressSliderValue
+            audioPlayer.currentTime = NSTimeInterval(playerProgressSliderValue)
+            
+            var time = calculateTimeFromNSTimeInterval(audioPlayer.currentTime)
+            progressTimerLabel.text  = "\(time.minute):\(time.second)"
+            playerProgressSlider.value = CFloat(audioPlayer.currentTime)
+            
+        }else{
+            playerProgressSlider.value = 0.0
+            audioPlayer.currentTime = 0.0
+            progressTimerLabel.text = "00:00:00"
+        }
+    }
+
+    
+    
+    
+    func calculateTimeFromNSTimeInterval(duration:NSTimeInterval) ->(minute:String, second:String){
+        var hour_   = abs(Int(duration)/3600)
+        var minute_ = abs(Int((duration/60) % 60))
+        var second_ = abs(Int(duration  % 60))
         
         var hour = hour_ > 9 ? "\(hour_)" : "0\(hour_)"
         var minute = minute_ > 9 ? "\(minute_)" : "0\(minute_)"
         var second = second_ > 9 ? "\(second_)" : "0\(second_)"
-        
-        progressTimerLabel.text  = "\(minute):\(second)"
-        playerProgressSlider.value = CFloat(audioPlayer.currentTime)
-        
+        return (minute,second)
     }
     
-    
-    
+
     
     func showTotalSongLength(){
         calculateSongLength()
@@ -338,15 +401,10 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     
     func calculateSongLength(){
-        var hour_ = abs(Int(audioLength/3600))
-        var minute_ = abs(Int((audioLength/60) % 60))
-        var second_ = abs(Int(audioLength % 60))
-        
-        var hour = hour_ > 9 ? "\(hour_)" : "0\(hour_)"
-        var minute = minute_ > 9 ? "\(minute_)" : "0\(minute_)"
-        var second = second_ > 9 ? "\(second_)" : "0\(second_)"
-        totalLengthOfAudio = "\(minute):\(second)"
+        var time = calculateTimeFromNSTimeInterval(audioLength)
+        totalLengthOfAudio = "\(time.minute):\(time.second)"
     }
+    
     
     //Read plist file and creates an array of dictionary
     
@@ -358,16 +416,16 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     func readArtistNameFromPlist(indexNumber: Int) -> String {
         readFromPlist()
         var infoDict = NSDictionary();
-        infoDict = audioList.objectAtIndex(indexNumber) as NSDictionary
-        let artistName = infoDict.valueForKey("artistName") as String
+        infoDict = audioList.objectAtIndex(indexNumber) as! NSDictionary
+        let artistName = infoDict.valueForKey("artistName") as! String
         return artistName
     }
     
     func readAlbumNameFromPlist(indexNumber: Int) -> String {
         readFromPlist()
         var infoDict = NSDictionary();
-        infoDict = audioList.objectAtIndex(indexNumber) as NSDictionary
-        var albumName = infoDict.valueForKey("albumName") as String
+        infoDict = audioList.objectAtIndex(indexNumber) as! NSDictionary
+        var albumName = infoDict.valueForKey("albumName") as! String
         return albumName
     }
 
@@ -375,16 +433,16 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     func readSongNameFromPlist(indexNumber: Int) -> String {
         readFromPlist()
         var songNameDict = NSDictionary();
-        songNameDict = audioList.objectAtIndex(indexNumber) as NSDictionary
-        var songName = songNameDict.valueForKey("songName") as String
+        songNameDict = audioList.objectAtIndex(indexNumber) as! NSDictionary
+        var songName = songNameDict.valueForKey("songName") as! String
         return songName
     }
     
     func readArtworkNameFromPlist(indexNumber: Int) -> String {
         readFromPlist()
         var infoDict = NSDictionary();
-        infoDict = audioList.objectAtIndex(indexNumber) as NSDictionary
-        var artworkName = infoDict.valueForKey("albumArtwork") as String
+        infoDict = audioList.objectAtIndex(indexNumber) as! NSDictionary
+        var artworkName = infoDict.valueForKey("albumArtwork") as! String
         return artworkName
     }
 

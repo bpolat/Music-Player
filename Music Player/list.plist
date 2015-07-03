@@ -12,5 +12,15 @@
 		<key>albumArtwork</key>
 		<string>sample artwork</string>
 	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Inna</string>
+		<key>albumName</key>
+		<string>Album</string>
+		<key>songName</key>
+		<string>Un Momento</string>
+		<key>albumArtwork</key>
+		<string>sample artwork</string>
+	</dict>
 </array>
 </plist>
