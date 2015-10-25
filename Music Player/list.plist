@@ -4,23 +4,13 @@
 <array>
 	<dict>
 		<key>artistName</key>
-		<string>Artist Name</string>
+		<string>Michael Jackson</string>
 		<key>albumName</key>
-		<string>Album Name</string>
+		<string>THRILLER</string>
 		<key>songName</key>
-		<string>Song Name</string>
+		<string>Billie Jean</string>
 		<key>albumArtwork</key>
-		<string>sample artwork</string>
-	</dict>
-	<dict>
-		<key>artistName</key>
-		<string>Inna</string>
-		<key>albumName</key>
-		<string>Album</string>
-		<key>songName</key>
-		<string>Un Momento</string>
-		<key>albumArtwork</key>
-		<string>sample artwork</string>
+		<string>Thriller_artwork</string>
 	</dict>
 </array>
 </plist>

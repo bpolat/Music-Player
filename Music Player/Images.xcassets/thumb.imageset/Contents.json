@@ -2,13 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "circle8439.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "circle8437.png"
+      "filename" : "circle4403.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",

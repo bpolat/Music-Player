@@ -7,19 +7,29 @@
     },
     {
       "idiom" : "iphone",
+      "size" : "29x29",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
       "size" : "40x40",
       "scale" : "2x"
     },
     {
+      "idiom" : "iphone",
+      "size" : "40x40",
+      "scale" : "3x"
+    },
+    {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "g7793.png",
+      "filename" : "g4463.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "g7787.png",
+      "filename" : "g4447.png",
       "scale" : "3x"
     }
   ],
