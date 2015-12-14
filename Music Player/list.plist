@@ -10,7 +10,27 @@
 		<key>songName</key>
 		<string>Billie Jean</string>
 		<key>albumArtwork</key>
-		<string>Thriller_artwork</string>
+		<string>demo1.png</string>
+	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Michael Jackson</string>
+		<key>albumName</key>
+		<string>THRILLER</string>
+		<key>songName</key>
+		<string>Beat It</string>
+		<key>albumArtwork</key>
+		<string>demo2.jpg</string>
+	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Michael Jackson</string>
+		<key>albumName</key>
+		<string>THRILLER</string>
+		<key>songName</key>
+		<string>Baby Be Mine</string>
+		<key>albumArtwork</key>
+		<string>demo3.jpg</string>
 	</dict>
 </array>
 </plist>

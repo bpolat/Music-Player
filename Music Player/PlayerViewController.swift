@@ -9,6 +9,8 @@
 // Build 3 - July 1 2015 - Please refer git history for full changes
 // Build 4 - Oct 24 2015 - Please refer git history for full changes
 
+//Build 5 - Dec 14 - 2015 Adding shuffle - repeat
+
 
 import UIKit
 import AVFoundation
@@ -29,6 +31,9 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     var totalLengthOfAudio = ""
     var finalImage:UIImage!
     var isTableViewOnscreen = false
+    var shuffleState = false
+    var repeatState = false
+    var shuffleArray = [Int]()
     
     @IBOutlet var songNo : UILabel!
     @IBOutlet var lineView : UIView!
@@ -48,6 +53,11 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     @IBOutlet var blurImageView : UIImageView!
     @IBOutlet var enhancer : UIView!
     @IBOutlet var tableViewContainer : UIView!
+    
+    @IBOutlet weak var shuffleButton: UIButton!
+    @IBOutlet weak var repeatButton: UIButton!
+    
+    
     
     @IBOutlet weak var tableViewContainerTopConstrain: NSLayoutConstraint!
     
@@ -200,6 +210,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         prepareAudio()
         updateLabels()
         assingSliderUI()
+        setRepeatAndShuffle()
         retrievePlayerProgressSliderValue()
         //LockScreen Media control registry
         if UIApplication.sharedApplication().respondsToSelector("beginReceivingRemoteControlEvents"){
@@ -211,6 +222,25 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         
     }
 
+    
+    func setRepeatAndShuffle(){
+        shuffleState = NSUserDefaults.standardUserDefaults().boolForKey("shuffleState")
+        repeatState = NSUserDefaults.standardUserDefaults().boolForKey("repeatState")
+        if shuffleState == true {
+            shuffleButton.selected = true
+        } else {
+            shuffleButton.selected = false
+        }
+        
+        if repeatState == true {
+            repeatButton.selected = true
+        }else{
+            repeatButton.selected = false
+        }
+    
+    }
+    
+    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -243,14 +273,68 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     // MARK:- AVAudioPlayer Delegate's Callback method
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool){
-        if flag{
-            currentAudioIndex++
-            if currentAudioIndex>audioList.count-1{
-                currentAudioIndex--
+        if flag == true {
+            
+            if shuffleState == false && repeatState == false {
+                // do nothing
+                playButton.setImage( UIImage(named: "play"), forState: UIControlState.Normal)
                 return
+            
+            } else if shuffleState == false && repeatState == true {
+            //repeat same song
+                prepareAudio()
+                playAudio()
+            
+            } else if shuffleState == true && repeatState == false {
+            //shuffle songs but do not repeat at the end
+            //Shuffle Logic : Create an array and put current song into the array then when next song come randomly choose song from available song and check against the array it is in the array try until you find one if the array and number of songs are same then stop playing as all songs are already played.
+               shuffleArray.append(currentAudioIndex)
+                if shuffleArray.count >= audioList.count {
+                playButton.setImage( UIImage(named: "play"), forState: UIControlState.Normal)
+                return
+                
+                }
+                
+                
+                var randomIndex = 0
+                var newIndex = false
+                while newIndex == false {
+                    randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
+                    if shuffleArray.contains(randomIndex) {
+                        newIndex = false
+                    }else{
+                        newIndex = true
+                    }
+                }
+                currentAudioIndex = randomIndex
+                prepareAudio()
+                playAudio()
+            
+            } else if shuffleState == true && repeatState == true {
+                //shuffle song endlessly
+                shuffleArray.append(currentAudioIndex)
+                if shuffleArray.count >= audioList.count {
+                    shuffleArray.removeAll()
+                }
+                
+                
+                var randomIndex = 0
+                var newIndex = false
+                while newIndex == false {
+                    randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
+                    if shuffleArray.contains(randomIndex) {
+                        newIndex = false
+                    }else{
+                        newIndex = true
+                    }
+                }
+                currentAudioIndex = randomIndex
+                prepareAudio()
+                playAudio()
+                
+            
             }
-            prepareAudio()
-            playAudio()
+            
         }
     }
     
@@ -559,6 +643,9 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     
     @IBAction func play(sender : AnyObject) {
+        if shuffleState == true {
+            shuffleArray.removeAll()
+        }
         let play = UIImage(named: "play")
         let pause = UIImage(named: "pause")
         if audioPlayer.playing{
@@ -607,6 +694,39 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     @IBAction func userSwipeUp(sender : UISwipeGestureRecognizer) {
         presentListTableView(self)
     }
+    
+    
+    @IBAction func shuffleButtonTapped(sender: UIButton) {
+        shuffleArray.removeAll()
+        if sender.selected == true {
+        sender.selected = false
+        shuffleState = false
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "shuffleState")
+        } else {
+        sender.selected = true
+        shuffleState = true
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "shuffleState")
+        }
+        
+        
+        
+    }
+    
+    
+    @IBAction func repeatButtonTapped(sender: UIButton) {
+        if sender.selected == true {
+            sender.selected = false
+            repeatState = false
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "repeatState")
+        } else {
+            sender.selected = true
+            repeatState = true
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "repeatState")
+        }
+
+        
+    }
+    
     
     
     
