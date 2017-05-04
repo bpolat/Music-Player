@@ -1,4 +1,4 @@
-# Music-Player
+# Music Player Source Code
 Fully functional Music Player Application Source code that is written in Swift 3, Xcode 8.3
 
 
