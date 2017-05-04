@@ -40,5 +40,5 @@ Feel free to fetch and improve the project.
 
 About
 -----------------------------------------------------------
-My name is Bahtiyar, freelance mobile developer based in Istanbul. Feel free to contact me for hiring or collabrations.
+My name is Bahtiyar, freelance mobile developer based in Istanbul. Feel free to contact me for hiring or collabration.
 Contact email:  bpolat@live.com
