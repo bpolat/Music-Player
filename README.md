@@ -12,8 +12,7 @@ Fully functional Music Player Application Source code that is written in Swift 3
  
  Introduction
 ---------------------------------------------------------
-Music Player for iOS devices. Support from iOS 8+.
-
+Music Player for iOS devices. Support from iOS 8+. It has beautiful minimalistic desing and 4 different unique theme background.
 
 
 
@@ -24,9 +23,11 @@ Extremely easy to use. Clone prohect from github and just import your .mp3 files
 
 
 
+
 Licence
 -----------------------------------------------------------
 Free for commercial or personal usage 
+
 
 
 
@@ -35,7 +36,9 @@ Contributions
 Feel free to fetch and improve the project.
 
 
+
+
 About
 -----------------------------------------------------------
 My name is Bahtiyar, freelance mobile developer based in Istanbul. Feel free to contact me for hiring or collabrations.
-
+Contact email:  bpolat@live.com
