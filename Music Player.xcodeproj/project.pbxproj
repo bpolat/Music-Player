@@ -17,6 +17,17 @@
 		D34BBB1D1BDCD82100C1E73E /* repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = D34BBB191BDCD82100C1E73E /* repeat.png */; };
 		D34BBB1E1BDCD82100C1E73E /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = D34BBB1A1BDCD82100C1E73E /* shuffle.png */; };
 		D36191BE19E9647B00CC9026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36191BB19E9647B00CC9026 /* Main.storyboard */; };
+		D36835361DA2EA190083F964 /* background6.png in Resources */ = {isa = PBXBuildFile; fileRef = D36835321DA2EA190083F964 /* background6.png */; };
+		D36835371DA2EA190083F964 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = D36835331DA2EA190083F964 /* background3.png */; };
+		D36835381DA2EA190083F964 /* background4.png in Resources */ = {isa = PBXBuildFile; fileRef = D36835341DA2EA190083F964 /* background4.png */; };
+		D36835391DA2EA190083F964 /* background5.png in Resources */ = {isa = PBXBuildFile; fileRef = D36835351DA2EA190083F964 /* background5.png */; };
+		D368353B1DA2EC600083F964 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D368353A1DA2EC600083F964 /* background2.png */; };
+		D368353D1DA2ED410083F964 /* background7.png in Resources */ = {isa = PBXBuildFile; fileRef = D368353C1DA2ED410083F964 /* background7.png */; };
+		D3B8BE7B1EBB5F7200620EF9 /* Music Player ReadMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7A1EBB5F7200620EF9 /* Music Player ReadMe.pdf */; };
+		D3B8BE801EBB5F7C00620EF9 /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7C1EBB5F7C00620EF9 /* screenshot1.png */; };
+		D3B8BE811EBB5F7C00620EF9 /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7D1EBB5F7C00620EF9 /* screenshot2.png */; };
+		D3B8BE821EBB5F7C00620EF9 /* screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7E1EBB5F7C00620EF9 /* screenshot3.png */; };
+		D3B8BE831EBB5F7C00620EF9 /* screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7F1EBB5F7C00620EF9 /* screenshot4.png */; };
 		D3C1749B19A36B6600C3F4E4 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3C1748A19A36B6600C3F4E4 /* list.plist */; };
 		D3C1749C19A36B6600C3F4E4 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C1748B19A36B6600C3F4E4 /* list.png */; };
 		D3C1749D19A36B6600C3F4E4 /* listS.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C1748C19A36B6600C3F4E4 /* listS.png */; };
@@ -28,7 +39,7 @@
 		D3D2E95519A36A0000DEF125 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2E95419A36A0000DEF125 /* PlayerViewController.swift */; };
 		D3D2E95A19A36A0000DEF125 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D2E95919A36A0000DEF125 /* Images.xcassets */; };
 		D3D2E96619A36A0000DEF125 /* Music_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D2E96519A36A0000DEF125 /* Music_PlayerTests.swift */; };
-		D3E3C32B1BDC030A005A68D3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E3C32A1BDC030A005A68D3 /* background.png */; };
+		D3E3C32B1BDC030A005A68D3 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E3C32A1BDC030A005A68D3 /* background1.png */; };
 		D3E3C32D1BDC0B74005A68D3 /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E3C32C1BDC0B74005A68D3 /* demo1.png */; };
 		D3E3C32F1BDC109C005A68D3 /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E3C32E1BDC109C005A68D3 /* shadow.png */; };
 		D3E3C3311BDC15C9005A68D3 /* Billie Jean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D3E3C3301BDC15C9005A68D3 /* Billie Jean.mp3 */; };
@@ -55,6 +66,17 @@
 		D34BBB191BDCD82100C1E73E /* repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeat.png; sourceTree = "<group>"; };
 		D34BBB1A1BDCD82100C1E73E /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
 		D36191BC19E9647B00CC9026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D36835321DA2EA190083F964 /* background6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background6.png; sourceTree = "<group>"; };
+		D36835331DA2EA190083F964 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
+		D36835341DA2EA190083F964 /* background4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background4.png; sourceTree = "<group>"; };
+		D36835351DA2EA190083F964 /* background5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background5.png; sourceTree = "<group>"; };
+		D368353A1DA2EC600083F964 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		D368353C1DA2ED410083F964 /* background7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background7.png; sourceTree = "<group>"; };
+		D3B8BE7A1EBB5F7200620EF9 /* Music Player ReadMe.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Music Player ReadMe.pdf"; sourceTree = "<group>"; };
+		D3B8BE7C1EBB5F7C00620EF9 /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
+		D3B8BE7D1EBB5F7C00620EF9 /* screenshot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot2.png; sourceTree = "<group>"; };
+		D3B8BE7E1EBB5F7C00620EF9 /* screenshot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot3.png; sourceTree = "<group>"; };
+		D3B8BE7F1EBB5F7C00620EF9 /* screenshot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot4.png; sourceTree = "<group>"; };
 		D3C1748A19A36B6600C3F4E4 /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
 		D3C1748B19A36B6600C3F4E4 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		D3C1748C19A36B6600C3F4E4 /* listS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listS.png; sourceTree = "<group>"; };
@@ -70,7 +92,7 @@
 		D3D2E95F19A36A0000DEF125 /* Music PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music PlayerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D2E96419A36A0000DEF125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D2E96519A36A0000DEF125 /* Music_PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_PlayerTests.swift; sourceTree = "<group>"; };
-		D3E3C32A1BDC030A005A68D3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D3E3C32A1BDC030A005A68D3 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
 		D3E3C32C1BDC0B74005A68D3 /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
 		D3E3C32E1BDC109C005A68D3 /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
 		D3E3C3301BDC15C9005A68D3 /* Billie Jean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Billie Jean.mp3"; sourceTree = "<group>"; };
@@ -125,12 +147,23 @@
 		D3C1748419A36B3700C3F4E4 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				D3B8BE7A1EBB5F7200620EF9 /* Music Player ReadMe.pdf */,
+				D3B8BE7C1EBB5F7C00620EF9 /* screenshot1.png */,
+				D3B8BE7D1EBB5F7C00620EF9 /* screenshot2.png */,
+				D3B8BE7E1EBB5F7C00620EF9 /* screenshot3.png */,
+				D3B8BE7F1EBB5F7C00620EF9 /* screenshot4.png */,
 				D34BBB171BDCD82100C1E73E /* repeat_s.png */,
 				D34BBB181BDCD82100C1E73E /* shuffle_s.png */,
 				D34BBB191BDCD82100C1E73E /* repeat.png */,
 				D34BBB1A1BDCD82100C1E73E /* shuffle.png */,
 				D3E3C32E1BDC109C005A68D3 /* shadow.png */,
-				D3E3C32A1BDC030A005A68D3 /* background.png */,
+				D3E3C32A1BDC030A005A68D3 /* background1.png */,
+				D368353A1DA2EC600083F964 /* background2.png */,
+				D36835331DA2EA190083F964 /* background3.png */,
+				D36835341DA2EA190083F964 /* background4.png */,
+				D36835351DA2EA190083F964 /* background5.png */,
+				D36835321DA2EA190083F964 /* background6.png */,
+				D368353C1DA2ED410083F964 /* background7.png */,
 				D3C1748B19A36B6600C3F4E4 /* list.png */,
 				D3C1748C19A36B6600C3F4E4 /* listS.png */,
 				D3C1748E19A36B6600C3F4E4 /* next.png */,
@@ -260,9 +293,11 @@
 				TargetAttributes = {
 					D3D2E94C19A36A0000DEF125 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					D3D2E95E19A36A0000DEF125 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = D3D2E94C19A36A0000DEF125;
 					};
 				};
@@ -292,18 +327,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34BBB1D1BDCD82100C1E73E /* repeat.png in Resources */,
+				D368353D1DA2ED410083F964 /* background7.png in Resources */,
 				D3E3C32D1BDC0B74005A68D3 /* demo1.png in Resources */,
 				D3C1749B19A36B6600C3F4E4 /* list.plist in Resources */,
 				D34BBB1B1BDCD82100C1E73E /* repeat_s.png in Resources */,
 				D321305D1BDCFC3D00A45A00 /* demo3.jpg in Resources */,
-				D3E3C32B1BDC030A005A68D3 /* background.png in Resources */,
+				D36835381DA2EA190083F964 /* background4.png in Resources */,
+				D3E3C32B1BDC030A005A68D3 /* background1.png in Resources */,
 				D33843861C1F7A7300348BE9 /* Launch Screen.storyboard in Resources */,
+				D3B8BE801EBB5F7C00620EF9 /* screenshot1.png in Resources */,
 				D3C1749D19A36B6600C3F4E4 /* listS.png in Resources */,
 				D3C1749F19A36B6600C3F4E4 /* next.png in Resources */,
+				D368353B1DA2EC600083F964 /* background2.png in Resources */,
 				D321305C1BDCFC3D00A45A00 /* demo2.jpg in Resources */,
 				D3C1749C19A36B6600C3F4E4 /* list.png in Resources */,
 				D3E3C32F1BDC109C005A68D3 /* shadow.png in Resources */,
 				D3C174A119A36B6600C3F4E4 /* pause.png in Resources */,
+				D3B8BE7B1EBB5F7200620EF9 /* Music Player ReadMe.pdf in Resources */,
+				D36835371DA2EA190083F964 /* background3.png in Resources */,
+				D3B8BE821EBB5F7C00620EF9 /* screenshot3.png in Resources */,
 				D32130581BDCFAD700A45A00 /* Baby Be Mine.mp3 in Resources */,
 				D34BBB1C1BDCD82100C1E73E /* shuffle_s.png in Resources */,
 				D34BBB1E1BDCD82100C1E73E /* shuffle.png in Resources */,
@@ -313,6 +355,10 @@
 				D32130591BDCFAD700A45A00 /* Beat It.mp3 in Resources */,
 				D36191BE19E9647B00CC9026 /* Main.storyboard in Resources */,
 				D3D2E95A19A36A0000DEF125 /* Images.xcassets in Resources */,
+				D3B8BE811EBB5F7C00620EF9 /* screenshot2.png in Resources */,
+				D3B8BE831EBB5F7C00620EF9 /* screenshot4.png in Resources */,
+				D36835391DA2EA190083F964 /* background5.png in Resources */,
+				D36835361DA2EA190083F964 /* background6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +498,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -467,6 +514,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -487,6 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -503,6 +552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
