@@ -13,6 +13,8 @@ Fully functional Music Player Application Source code that is written in Swift 3
  Introduction
 ---------------------------------------------------------
 Music Player for iOS devices. Support from iOS 8+. It has beautiful minimalistic desing and 4 different unique theme background.
+Check out preview video :
+https://www.youtube.com/watch?v=5FJzGqrUI3k
 
 
 
