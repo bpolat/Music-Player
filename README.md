@@ -2,10 +2,10 @@
 Fully functional Music Player Application Source code that is written in Swift 3, Xcode 8.3
 
 
- ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot2.png)
- ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot4.png)
  ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot3.png)
+ ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot4.png)
  ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot1.png)
+ ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot2.png)
  
  
  
