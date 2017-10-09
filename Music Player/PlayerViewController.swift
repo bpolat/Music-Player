@@ -26,6 +26,38 @@ extension UIImageView {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
+    
+    func  startRotating() {
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.fromValue = 0.0
+        rotationAnimation.toValue = Double.pi * 2.0
+        rotationAnimation.duration = 20.0
+        rotationAnimation.isCumulative = true
+        rotationAnimation.repeatCount = MAXFLOAT
+        layer.add(rotationAnimation, forKey: "RotationAnimation")
+    }
+    
+    func stopRotating() {
+        
+        let pausedTime = self.layer.convertTime(CACurrentMediaTime(), from: nil)
+        self.layer.speed = 0.0
+        self.layer.timeOffset = pausedTime
+    }
+    
+    func resumeRotate() {
+        if self.layer.timeOffset == 0 {
+            startRotating()
+            return
+        }
+        
+        let pauseTime = self.layer.timeOffset
+        self.layer.speed = 1.0
+        self.layer.timeOffset = 0.0
+        self.layer.beginTime = 0.0
+        
+        let timeWhenPause = self.layer.convertTime(CACurrentMediaTime(), from: nil) - pauseTime
+        self.layer.beginTime = timeWhenPause
+    }
 }
 
 
@@ -269,6 +301,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
             if shuffleState == false && repeatState == false {
                 // do nothing
                 playButton.setImage( UIImage(named: "play"), for: UIControlState())
+                albumArtworkImageView.stopRotating()
                 return
             
             } else if shuffleState == false && repeatState == true {
@@ -282,6 +315,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
                shuffleArray.append(currentAudioIndex)
                 if shuffleArray.count >= audioList.count {
                 playButton.setImage( UIImage(named: "play"), for: UIControlState())
+                    albumArtworkImageView.stopRotating()
                 return
                 
                 }
@@ -384,6 +418,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     //MARK:- Player Controls Methods
     func  playAudio(){
         audioPlayer.play()
+        albumArtworkImageView.resumeRotate()
         startTimer()
         updateLabels()
         saveCurrentTrackNumber()
@@ -425,12 +460,13 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     func stopAudiplayer(){
         audioPlayer.stop();
+        albumArtworkImageView.stopRotating()
         
     }
     
     func pauseAudioPlayer(){
         audioPlayer.pause()
-        
+        albumArtworkImageView.stopRotating()
     }
     
     
