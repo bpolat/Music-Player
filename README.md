@@ -1,5 +1,5 @@
 # Music Player Source Code
-Fully functional Music Player Application Source code that is written in Swift 3, Xcode 8.3
+Fully functional Music Player Application Source code that is written in Swift 4.1, Xcode 9.3
 
 
  ![alt tag](https://raw.githubusercontent.com/bpolat/Music-Player/master/Music%20Player/screenshot3.png)
@@ -12,7 +12,7 @@ Fully functional Music Player Application Source code that is written in Swift 3
  
  Introduction
 ---------------------------------------------------------
-Music Player for iOS devices. Support from iOS 8+. It has beautiful minimalistic desing and 4 different unique theme background.
+Music Player for iOS devices. Support from iOS 8+, compiled with latest Swift 4.1. It has beautiful minimalistic desing and 4 different unique theme background.
 Check out preview video :
 https://www.youtube.com/watch?v=5FJzGqrUI3k
 
