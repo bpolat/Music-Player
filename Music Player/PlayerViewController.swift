@@ -369,6 +369,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         UIApplication.shared.beginReceivingRemoteControlEvents()
         audioPlayer = try? AVAudioPlayer(contentsOf: currentAudioPath)
         audioPlayer.delegate = self
+        audioPlayer
         audioLength = audioPlayer.duration
         playerProgressSlider.maximumValue = CFloat(audioPlayer.duration)
         playerProgressSlider.minimumValue = 0.0
@@ -441,6 +442,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlayerViewController.update(_:)), userInfo: nil,repeats: true)
             timer.fire()
         }
+    }
+    
+    deinit {
+        timer.invalidate()
     }
     
     func stopTimer(){
@@ -724,10 +729,12 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let removeList = UIImage(named: "listS")
         effectToggle ? "\(listButton.setImage( showList, for: UIControlState()))" : "\(listButton.setImage(removeList , for: UIControlState()))"
     }
-    
-    
-    
-    
-    
-    
+}
+
+extension AVPlayer {
+    override convenience init() {
+        if #available(iOS 10.0, *) {
+            automaticallyWaitsToMinimizeStalling = false
+        }
+    }
 }
