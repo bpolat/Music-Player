@@ -369,7 +369,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         UIApplication.shared.beginReceivingRemoteControlEvents()
         audioPlayer = try? AVAudioPlayer(contentsOf: currentAudioPath)
         audioPlayer.delegate = self
-        audioPlayer
+//        audioPlayer
         audioLength = audioPlayer.duration
         playerProgressSlider.maximumValue = CFloat(audioPlayer.duration)
         playerProgressSlider.minimumValue = 0.0
@@ -731,10 +731,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     }
 }
 
-extension AVPlayer {
-    override convenience init() {
-        if #available(iOS 10.0, *) {
-            automaticallyWaitsToMinimizeStalling = false
-        }
-    }
-}
+//extension AVPlayer {
+//    override convenience init() {
+//        if #available(iOS 10.0, *) {
+//            automaticallyWaitsToMinimizeStalling = false
+//        }
+//    }
+//}
