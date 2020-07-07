@@ -454,7 +454,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     }
     
     
-    func update(_ timer: Timer){
+    @objc func update(_ timer: Timer){
         if !audioPlayer.isPlaying{
             return
         }
