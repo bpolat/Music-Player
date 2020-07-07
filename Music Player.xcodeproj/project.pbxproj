@@ -23,11 +23,6 @@
 		D36835391DA2EA190083F964 /* background5.png in Resources */ = {isa = PBXBuildFile; fileRef = D36835351DA2EA190083F964 /* background5.png */; };
 		D368353B1DA2EC600083F964 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D368353A1DA2EC600083F964 /* background2.png */; };
 		D368353D1DA2ED410083F964 /* background7.png in Resources */ = {isa = PBXBuildFile; fileRef = D368353C1DA2ED410083F964 /* background7.png */; };
-		D3B8BE7B1EBB5F7200620EF9 /* Music Player ReadMe.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7A1EBB5F7200620EF9 /* Music Player ReadMe.pdf */; };
-		D3B8BE801EBB5F7C00620EF9 /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7C1EBB5F7C00620EF9 /* screenshot1.png */; };
-		D3B8BE811EBB5F7C00620EF9 /* screenshot2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7D1EBB5F7C00620EF9 /* screenshot2.png */; };
-		D3B8BE821EBB5F7C00620EF9 /* screenshot3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7E1EBB5F7C00620EF9 /* screenshot3.png */; };
-		D3B8BE831EBB5F7C00620EF9 /* screenshot4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B8BE7F1EBB5F7C00620EF9 /* screenshot4.png */; };
 		D3C1749B19A36B6600C3F4E4 /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3C1748A19A36B6600C3F4E4 /* list.plist */; };
 		D3C1749C19A36B6600C3F4E4 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C1748B19A36B6600C3F4E4 /* list.png */; };
 		D3C1749D19A36B6600C3F4E4 /* listS.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C1748C19A36B6600C3F4E4 /* listS.png */; };
@@ -272,7 +267,6 @@
 				D36835381DA2EA190083F964 /* background4.png in Resources */,
 				D3E3C32B1BDC030A005A68D3 /* background1.png in Resources */,
 				D33843861C1F7A7300348BE9 /* Launch Screen.storyboard in Resources */,
-				D3B8BE801EBB5F7C00620EF9 /* screenshot1.png in Resources */,
 				D3C1749D19A36B6600C3F4E4 /* listS.png in Resources */,
 				D3C1749F19A36B6600C3F4E4 /* next.png in Resources */,
 				D368353B1DA2EC600083F964 /* background2.png in Resources */,
@@ -280,9 +274,7 @@
 				D3C1749C19A36B6600C3F4E4 /* list.png in Resources */,
 				D3E3C32F1BDC109C005A68D3 /* shadow.png in Resources */,
 				D3C174A119A36B6600C3F4E4 /* pause.png in Resources */,
-				D3B8BE7B1EBB5F7200620EF9 /* Music Player ReadMe.pdf in Resources */,
 				D36835371DA2EA190083F964 /* background3.png in Resources */,
-				D3B8BE821EBB5F7C00620EF9 /* screenshot3.png in Resources */,
 				D32130581BDCFAD700A45A00 /* Baby Be Mine.mp3 in Resources */,
 				D34BBB1C1BDCD82100C1E73E /* shuffle_s.png in Resources */,
 				D34BBB1E1BDCD82100C1E73E /* shuffle.png in Resources */,
@@ -292,8 +284,6 @@
 				D32130591BDCFAD700A45A00 /* Beat It.mp3 in Resources */,
 				D36191BE19E9647B00CC9026 /* Main.storyboard in Resources */,
 				D3D2E95A19A36A0000DEF125 /* Images.xcassets in Resources */,
-				D3B8BE811EBB5F7C00620EF9 /* screenshot2.png in Resources */,
-				D3B8BE831EBB5F7C00620EF9 /* screenshot4.png in Resources */,
 				D36835391DA2EA190083F964 /* background5.png in Resources */,
 				D36835361DA2EA190083F964 /* background6.png in Resources */,
 			);
