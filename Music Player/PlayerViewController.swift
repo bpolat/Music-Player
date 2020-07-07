@@ -93,7 +93,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     }
     
     override func remoteControlReceived(with event: UIEvent?) {
-        if event!.type == UIEventType.remoteControl{
+        if event!.type == UIEvent.EventType.remoteControl{
             switch event!.subtype{
             case UIEventSubtype.remoteControlPlay:
                 play(self)
@@ -171,10 +171,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         effectToggle = !effectToggle
         let showList = UIImage(named: "list")
         let removeList = UIImage(named: "listS")
-        effectToggle ? "\(listButton.setImage( showList, for: UIControlState()))" : "\(listButton.setImage(removeList , for: UIControlState()))"
+        effectToggle ? "\(listButton.setImage( showList, for: UIControl.State()))" : "\(listButton.setImage(removeList , for: UIControl.State()))"
         let play = UIImage(named: "play")
         let pause = UIImage(named: "pause")
-        audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControlState()))" : "\(playButton.setImage(play , for: UIControlState()))"
+        audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControl.State()))" : "\(playButton.setImage(play , for: UIControl.State()))"
         
         blurView.isHidden = true
 
@@ -268,7 +268,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
             
             if shuffleState == false && repeatState == false {
                 // do nothing
-                playButton.setImage( UIImage(named: "play"), for: UIControlState())
+                playButton.setImage( UIImage(named: "play"), for: UIControl.State())
                 return
             
             } else if shuffleState == false && repeatState == true {
@@ -281,7 +281,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
             //Shuffle Logic : Create an array and put current song into the array then when next song come randomly choose song from available song and check against the array it is in the array try until you find one if the array and number of songs are same then stop playing as all songs are already played.
                shuffleArray.append(currentAudioIndex)
                 if shuffleArray.count >= audioList.count {
-                playButton.setImage( UIImage(named: "play"), for: UIControlState())
+                playButton.setImage( UIImage(named: "play"), for: UIControl.State())
                 return
                 
                 }
@@ -359,7 +359,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         setCurrentAudioPath()
         do {
             //keep alive audio at background
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)))
         } catch _ {
         }
         do {
@@ -585,7 +585,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     func animateTableViewToScreen(){
         self.blurView.isHidden = false
         UIView.animate(withDuration: 0.15, delay: 0.01, options:
-            UIViewAnimationOptions.curveEaseIn, animations: {
+            UIView.AnimationOptions.curveEaseIn, animations: {
             self.tableViewContainerTopConstrain.constant = 0.0
             self.tableViewContainer.layoutIfNeeded()
             }, completion: { (bool) in
@@ -600,7 +600,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         isTableViewOnscreen = false
         setNeedsStatusBarAppearanceUpdate()
         self.tableViewContainerTopConstrain.constant = 1000.0
-        UIView.animate(withDuration: 0.20, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
            self.tableViewContainer.layoutIfNeeded()
             
             }, completion: {
@@ -616,9 +616,9 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let maxImage = UIImage(named: "slider-track")
         let thumb = UIImage(named: "thumb")
 
-        playerProgressSlider.setMinimumTrackImage(minImage, for: UIControlState())
-        playerProgressSlider.setMaximumTrackImage(maxImage, for: UIControlState())
-        playerProgressSlider.setThumbImage(thumb, for: UIControlState())
+        playerProgressSlider.setMinimumTrackImage(minImage, for: UIControl.State())
+        playerProgressSlider.setMaximumTrackImage(maxImage, for: UIControl.State())
+        playerProgressSlider.setThumbImage(thumb, for: UIControl.State())
 
     
     }
@@ -634,11 +634,11 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let pause = UIImage(named: "pause")
         if audioPlayer.isPlaying{
             pauseAudioPlayer()
-            audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControlState()))" : "\(playButton.setImage(play , for: UIControlState()))"
+            audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControl.State()))" : "\(playButton.setImage(play , for: UIControl.State()))"
             
         }else{
             playAudio()
-            audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControlState()))" : "\(playButton.setImage(play , for: UIControlState()))"
+            audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControl.State()))" : "\(playButton.setImage(play , for: UIControl.State()))"
         }
     }
     
@@ -727,7 +727,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         effectToggle = !effectToggle
         let showList = UIImage(named: "list")
         let removeList = UIImage(named: "listS")
-        effectToggle ? "\(listButton.setImage( showList, for: UIControlState()))" : "\(listButton.setImage(removeList , for: UIControlState()))"
+        effectToggle ? "\(listButton.setImage( showList, for: UIControl.State()))" : "\(listButton.setImage(removeList , for: UIControl.State()))"
     }
 }
 
@@ -738,3 +738,8 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
 //        }
 //    }
 //}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}
