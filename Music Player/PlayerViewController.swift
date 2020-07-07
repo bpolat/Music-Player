@@ -171,10 +171,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         effectToggle = !effectToggle
         let showList = UIImage(named: "list")
         let removeList = UIImage(named: "listS")
-        effectToggle ? "\(listButton.setImage( showList, for: UIControl.State()))" : "\(listButton.setImage(removeList , for: UIControl.State()))"
+        listButton.setImage(effectToggle ? showList : removeList, for: UIControl.State())
         let play = UIImage(named: "play")
         let pause = UIImage(named: "pause")
-        audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControl.State()))" : "\(playButton.setImage(play , for: UIControl.State()))"
+        playButton.setImage(audioPlayer.isPlaying ? pause : play, for: UIControl.State())
         
         blurView.isHidden = true
 
@@ -334,7 +334,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
     func setCurrentAudioPath(){
         currentAudio = readSongNameFromPlist(currentAudioIndex)
         currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
-        print("\(currentAudioPath)")
+        print("\(String(describing: currentAudioPath))")
     }
     
     
@@ -634,12 +634,10 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let pause = UIImage(named: "pause")
         if audioPlayer.isPlaying{
             pauseAudioPlayer()
-            audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControl.State()))" : "\(playButton.setImage(play , for: UIControl.State()))"
-            
         }else{
             playAudio()
-            audioPlayer.isPlaying ? "\(playButton.setImage( pause, for: UIControl.State()))" : "\(playButton.setImage(play , for: UIControl.State()))"
         }
+        playButton.setImage(audioPlayer.isPlaying ? pause : play, for: UIControl.State())
     }
     
     
@@ -727,7 +725,7 @@ class PlayerViewController: UIViewController, UITableViewDelegate,UITableViewDat
         effectToggle = !effectToggle
         let showList = UIImage(named: "list")
         let removeList = UIImage(named: "listS")
-        effectToggle ? "\(listButton.setImage( showList, for: UIControl.State()))" : "\(listButton.setImage(removeList , for: UIControl.State()))"
+        listButton.setImage(effectToggle ? showList : removeList, for: UIControl.State())
     }
 }
 
